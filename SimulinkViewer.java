@@ -1,6 +1,5 @@
 package com.example.demo3;
 
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -19,8 +18,8 @@ import java.io.FileInputStream;
 import java.util.ArrayList;//427 get
 import java.util.* ;//100,106,302,385
 import java.io.IOException;
-
 import javafx.geometry.Point2D ;
+
 public class SimulinkViewer extends Application {
     static ArrayList<Block> blocks = new ArrayList<Block>();
     static ArrayList<Line> lines = new ArrayList<Line>();
@@ -109,12 +108,8 @@ public class SimulinkViewer extends Application {
                     arrowhead.setRotate(angle);
                     pane.getChildren().addAll(l, arrowhead);
                 } else {
-
                     pane.getChildren().addAll(l);
                 }
-                // Point2D x = new Point2D(1,1) ;
-
-                // pane.getChildren().addAll(l) ;
             }
 
         }
@@ -137,7 +132,6 @@ public class SimulinkViewer extends Application {
                 } else {
                     pane.getChildren().addAll(c, l);
                 }
-//                pane.getChildren().add(l) ;
             }
 
         }
@@ -150,8 +144,6 @@ public class SimulinkViewer extends Application {
 
     public static void main(String[] args) throws IOException {
 
-        // String fileName = args[0];
-        //File file = new File(fileName);
         FileInputStream inputStream = new FileInputStream("e.mdl");
         StringBuilder stringBuilder = new StringBuilder();
         int d;
@@ -206,19 +198,10 @@ public class SimulinkViewer extends Application {
                                 i++;
                                 continue;
                             }
-                            if (numcommas == 0) {
-                                left += pos.charAt(i);
-                            }
-                            if (numcommas == 1) {
-                                top += pos.charAt(i);
-                            }
-                            if (numcommas == 2) {
-                                right += pos.charAt(i);
-                            }
-                            if (numcommas == 3) {
-                                bottom += pos.charAt(i);
-                            }
-
+                            if (numcommas == 0) left += pos.charAt(i);
+                            if (numcommas == 1) top += pos.charAt(i);
+                            if (numcommas == 2) right += pos.charAt(i);
+                            if (numcommas == 3) bottom += pos.charAt(i);
                         }
                     }
 
@@ -230,10 +213,7 @@ public class SimulinkViewer extends Application {
                 arr[3] = Integer.parseInt(bottom);
                 Block bl = new Block(name, Integer.parseInt(SID), Integer.parseInt(numins), Integer.parseInt(numouts), arr,mirrored);
                 blocks.add(bl);
-
-
-                bfinder.addBlock( bl)   ;       ////////////////////newwwww
-
+                bfinder.addBlock( bl)   ;    
 
             } else if (satr.contains("<Line")) {
                 int flag = 0;
@@ -266,10 +246,7 @@ public class SimulinkViewer extends Application {
                             offsets.set(counter, current);
 
                         }
-                       /* for(int i =0; i< offsets.size();i++)
-                        {
-                            System.out.println(offsets.get(i));
-                        }*/
+                      
                     } else if (satr.contains(" <P Name=\"Dst\">")) {
                         DST = satr.substring(satr.indexOf(">") + 1, satr.indexOf("#"));
                         DSTPORT = satr.substring(satr.indexOf(":") + 1, satr.indexOf("</P>"));
@@ -328,18 +305,9 @@ public class SimulinkViewer extends Application {
                     lines.add(l1);
                     flag = 1;
                 }
-
-
             }
-
         }
-      /*  System.out.println(blocks.get(2).getOuts(0));
-        System.out.println(lines.get(1).getStartPoint());
-        System.out.println(lines.get(1).getEndPoint());
-*/
-
-
-
+  
         launch();
     }
 }
@@ -354,7 +322,7 @@ class Line {
     private boolean hasBranches =true ;
     private int dstPort;
     private Point2D startPoint;
-    private Point2D endPoint= new Point2D(0,0);;  //Point2D p1=new Point2D(2,3);
+    private Point2D endPoint= new Point2D(0,0);
 
     private ArrayList<Point2D> offset= new ArrayList<Point2D>();
     private ArrayList<Point2D> Points= new ArrayList<Point2D>();
@@ -378,7 +346,7 @@ class Line {
     {   this.srcID=srcID; this.srcPort=srcPort; this.dstID=dstID; this.dstPort=dstPort;
 
         calcStart();
-        endPoint=startPoint;  /// end=end+start
+        endPoint=startPoint;  
 
         if(!(Offset.isEmpty()))
         {
@@ -428,8 +396,7 @@ class Line {
 
 
     class Branch
-    {   // We don't include the startpoint in Arr Points
-        private Point2D startpoint=endPoint;
+    {   private Point2D startpoint=endPoint;
         private Point2D endpoint=new Point2D(0,0);
         private ArrayList<Point2D> branchOffset= new ArrayList<Point2D>();
         private int BdstID;
@@ -521,7 +488,6 @@ class Block {
     }
 
 
-
     public int getSID() {return SID;}
     public double getLength(){return (Pos[3]-Pos[1]);}
     public double getHight(){return (Pos[2]-Pos[0]);}
@@ -560,8 +526,8 @@ class Block {
 }
 
 
-
-class Blockfinder{
+//This Class Finds the Block using its SID
+class Blockfinder{  
     private static ArrayList<Block> Blocks=new ArrayList<Block>();
 
     public static Block getBlock(int ID){
