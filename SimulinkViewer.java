@@ -1,15 +1,13 @@
-package com.example.demo1;
+package com.example.demo3;
+
 
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
@@ -23,7 +21,7 @@ import java.util.* ;//100,106,302,385
 import java.io.IOException;
 
 import javafx.geometry.Point2D ;
-public class SimulinkViewer extends Application {
+public class HelloApplication extends Application {
     static ArrayList<Block> blocks = new ArrayList<Block>();
     static ArrayList<Line> lines = new ArrayList<Line>();
     static ArrayList<Line.Branch> branches = new ArrayList<Line.Branch>();
@@ -43,7 +41,7 @@ public class SimulinkViewer extends Application {
             t.setScaleX(0.9);
             StackPane baneh = new StackPane();
             if(Objects.equals(blocks.get(i).getName(), "Add")){
-                Image image = new Image(new FileInputStream("C:\\Users\\seif alrahman\\Desktop\\+++.jpg")) ;
+                Image image = new Image(new FileInputStream("a537aa9af7a12ea3.jpg")) ;
                 imageView2 =new ImageView(image);
 
                 imageView2.setX(blocks.get(i).getLeft());
@@ -57,7 +55,7 @@ public class SimulinkViewer extends Application {
                 pane.getChildren().addAll(imageView2) ;
             }
             else if(Objects.equals(blocks.get(i).getName(), "Constant")){
-                Image image = new Image(new FileInputStream("C:\\Users\\seif alrahman\\Desktop\\1.jpg")) ;
+                Image image = new Image(new FileInputStream("1.jpg")) ;
                 imageView2 =new ImageView(image);
                 imageView2.setX(blocks.get(i).getLeft());
                 imageView2.setY(blocks.get(i).getTop()) ;
@@ -66,7 +64,7 @@ public class SimulinkViewer extends Application {
                 pane.getChildren().addAll(imageView2) ;
             }
             else if(Objects.equals(blocks.get(i).getName(), "Scope")){
-                Image image = new Image(new FileInputStream("C:\\Users\\seif alrahman\\Desktop\\SCOPE.jpg")) ;
+                Image image = new Image(new FileInputStream("SCOPE.jpg")) ;
                 imageView2 =new ImageView(image);
                 imageView2.setX(blocks.get(i).getLeft());
                 imageView2.setY(blocks.get(i).getTop()) ;
@@ -75,7 +73,7 @@ public class SimulinkViewer extends Application {
                 pane.getChildren().addAll(imageView2) ;
             }
             else if(Objects.equals(blocks.get(i).getName(), "Saturation")){
-                Image image = new Image(new FileInputStream("C:\\Users\\seif alrahman\\Desktop\\SATURATION.jpg")) ;
+                Image image = new Image(new FileInputStream("SATURATION.jpg")) ;
                 imageView2 =new ImageView(image);
                 imageView2.setX(blocks.get(i).getLeft());
                 imageView2.setY(blocks.get(i).getTop()) ;
@@ -84,7 +82,7 @@ public class SimulinkViewer extends Application {
                 pane.getChildren().addAll(imageView2) ;
             }
             else if(Objects.equals(blocks.get(i).getName(), "Unit Delay")){
-                Image image = new Image(new FileInputStream("C:\\Users\\seif alrahman\\Desktop\\1overZ.png")) ;
+                Image image = new Image(new FileInputStream("1overZ.png")) ;
                 imageView2 =new ImageView(image);
                 imageView2.setX(blocks.get(i).getLeft());
                 imageView2.setY(blocks.get(i).getTop()) ;
@@ -101,7 +99,7 @@ public class SimulinkViewer extends Application {
                 if ((!line.getHasBranches()) && (j == (line.getPoints().size() - 2))) {
                     Polygon arrowhead = new Polygon();
                     arrowhead.getPoints().addAll(0.0, 7.0,
-                           5.0, 3.5,
+                            5.0, 3.5,
                             0.0, 0.0);
                     arrowhead.setFill(Color.BLACK);
                     double angle = Math.atan2((l.getEndY() - l.getStartY()), (l.getEndX() - l.getStartX())) * 180 / Math.PI;
@@ -127,7 +125,7 @@ public class SimulinkViewer extends Application {
                 if ((j == (branch.getBranchPoints().size() - 2))) {
                     Polygon arrowhead = new Polygon();
                     arrowhead.getPoints().addAll(0.0, 7.0,
-                           5.0, 3.5,
+                            5.0, 3.5,
                             0.0, 0.0);
                     arrowhead.setFill(Color.BLACK);
                     double angle = Math.atan2((l.getEndY() - l.getStartY()), (l.getEndX() - l.getStartX())) * 180 / Math.PI;
@@ -154,7 +152,7 @@ public class SimulinkViewer extends Application {
 
         // String fileName = args[0];
         //File file = new File(fileName);
-        FileInputStream inputStream = new FileInputStream("C:/Users/seif alrahman/Desktop/Example.mdl");
+        FileInputStream inputStream = new FileInputStream("e.mdl");
         StringBuilder stringBuilder = new StringBuilder();
         int d;
         while ((d = inputStream.read()) != -1) {
