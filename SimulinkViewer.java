@@ -101,11 +101,11 @@ public class SimulinkViewer extends Application {
                 if ((!line.getHasBranches()) && (j == (line.getPoints().size() - 2))) {
                     Polygon arrowhead = new Polygon();
                     arrowhead.getPoints().addAll(0.0, 7.0,
-                           7.0, 3.5,
+                           5.0, 3.5,
                             0.0, 0.0);
                     arrowhead.setFill(Color.BLACK);
                     double angle = Math.atan2((l.getEndY() - l.getStartY()), (l.getEndX() - l.getStartX())) * 180 / Math.PI;
-                    arrowhead.setLayoutX(l.getEndX() - arrowhead.getBoundsInLocal().getWidth() / 2);
+                    arrowhead.setLayoutX(l.getEndX() - arrowhead.getBoundsInLocal().getWidth() / ((line.getPoints().get(j).getX()>line.getPoints().get(j+1).getX()) ?3:1));
                     arrowhead.setLayoutY(l.getEndY() - arrowhead.getBoundsInLocal().getHeight() / 2);
 
                     arrowhead.setRotate(angle);
@@ -127,11 +127,11 @@ public class SimulinkViewer extends Application {
                 if ((j == (branch.getBranchPoints().size() - 2))) {
                     Polygon arrowhead = new Polygon();
                     arrowhead.getPoints().addAll(0.0, 7.0,
-                           7.0, 3.5,
+                           5.0, 3.5,
                             0.0, 0.0);
                     arrowhead.setFill(Color.BLACK);
                     double angle = Math.atan2((l.getEndY() - l.getStartY()), (l.getEndX() - l.getStartX())) * 180 / Math.PI;
-                    arrowhead.setLayoutX(l.getEndX() - arrowhead.getBoundsInLocal().getWidth() / 2);
+                    arrowhead.setLayoutX(l.getEndX() - arrowhead.getBoundsInLocal().getWidth() / ((branch.getBranchPoints().get(j).getX()>branch.getBranchPoints().get(j+1).getX()) ?3:1));
                     arrowhead.setLayoutY(l.getEndY() - arrowhead.getBoundsInLocal().getHeight() / 2);
 
                     arrowhead.setRotate(angle);
