@@ -1,5 +1,5 @@
 # Simulink-Viewer-
-##Motivation 
+## Motivation 
 The aim of this project is to develop a software tool that can read Simulink MDL files 
 and display their contents in a user-friendly way using a Java-based graphical user 
 interface (GUI). Simulink is a popular simulation and modeling environment used in 
@@ -16,7 +16,7 @@ the model information, including the block diagram, parameters, and connections.
 GUI will provide a user-friendly interface for displaying the model and enabling user 
 interaction.
 
-##Description : 
+## Description : 
 Key features of the software tool will include:
  Loading and parsing Simulink MDL files
  Displaying the Simulink model in a hierarchical structure
