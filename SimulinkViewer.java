@@ -21,7 +21,7 @@ import java.util.* ;//100,106,302,385
 import java.io.IOException;
 
 import javafx.geometry.Point2D ;
-public class HelloApplication extends Application {
+public class SimulinkViewer extends Application {
     static ArrayList<Block> blocks = new ArrayList<Block>();
     static ArrayList<Line> lines = new ArrayList<Line>();
     static ArrayList<Line.Branch> branches = new ArrayList<Line.Branch>();
