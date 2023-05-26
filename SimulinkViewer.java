@@ -100,9 +100,9 @@ public class SimulinkViewer extends Application {
                 javafx.scene.shape.Line l = new javafx.scene.shape.Line(line.getPoints().get(j).getX(), line.getPoints().get(j).getY(), line.getPoints().get(j + 1).getX(), line.getPoints().get(j + 1).getY());
                 if ((!line.getHasBranches()) && (j == (line.getPoints().size() - 2))) {
                     Polygon arrowhead = new Polygon();
-                    arrowhead.getPoints().addAll(-2.5, 7.0,
-                            3.5, 3.5,
-                            -2.5, 0.0);
+                    arrowhead.getPoints().addAll(0.0, 7.0,
+                           7.0, 3.5,
+                            0.0, 0.0);
                     arrowhead.setFill(Color.BLACK);
                     double angle = Math.atan2((l.getEndY() - l.getStartY()), (l.getEndX() - l.getStartX())) * 180 / Math.PI;
                     arrowhead.setLayoutX(l.getEndX() - arrowhead.getBoundsInLocal().getWidth() / 2);
@@ -126,9 +126,9 @@ public class SimulinkViewer extends Application {
                 Circle c = new Circle(l.getStartX(), l.getStartY(), 2, Color.BLACK);
                 if ((j == (branch.getBranchPoints().size() - 2))) {
                     Polygon arrowhead = new Polygon();
-                    arrowhead.getPoints().addAll(-2.5, 7.0,
-                            3.5, 3.5,
-                            -2.5, 0.0);
+                    arrowhead.getPoints().addAll(0.0, 7.0,
+                           7.0, 3.5,
+                            0.0, 0.0);
                     arrowhead.setFill(Color.BLACK);
                     double angle = Math.atan2((l.getEndY() - l.getStartY()), (l.getEndX() - l.getStartX())) * 180 / Math.PI;
                     arrowhead.setLayoutX(l.getEndX() - arrowhead.getBoundsInLocal().getWidth() / 2);
