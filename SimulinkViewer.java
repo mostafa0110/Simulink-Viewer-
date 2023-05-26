@@ -560,19 +560,3 @@ class Block {
 }
 
 
-class Blockfinder{
-    private static ArrayList<Block> Blocks=new ArrayList<Block>();
-
-    public static Block getBlock(int ID){
-        int i=0;
-        for(i=0; i<Blocks.size() ; i++)
-        {
-            if(Blocks.get(i).getSID()==ID) break;
-        }
-        if (i == Blocks.size()) { // ID not found
-            return null;
-        }
-        return Blocks.get(i);
-    }
-    public void addBlock(Block b){Blocks.add(b);}
-}
